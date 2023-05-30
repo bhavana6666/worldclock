@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/worldclock.css">
+</head>
+<style>
+    *{
+
+
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body{
+width: 100vw;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+background-image: url(https://m.economictimes.com/thumb/msid-62853308,width-1200,height-900,resizemode-4,imgsize-202950/time.jpg);
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+}
+
+section{
+width: 25rem;
+height: 25rem;
+border: 7px solid;
+position: relative;
+border-radius: 50%;
+padding: 2rem;
+background-color: rgb(255, 255, 255);
+z-index: -1;
+}
+span
+{
+position: absolute;
+}
+.centroid{
+width: 2rem;
+height: 2rem;
+top: 50%;
+left: 48%;
+background-color: rgb(12, 12, 12);
+border-radius: 50%;
+transform-origin: top left; 
+}
+.sechand{
+width: 0.2rem;
+height: 10rem;
+background-color: rgb(170, 13, 13);
+top: 15%;
+left: 52%;
+transform-origin: bottom left; 
+ z-index: -1; 
+}
+.minhand{
+width: 0.5rem;
+height: 10rem;
+background-color:black;
+top: 15%;
+left: 52%;
+transform-origin: bottom left; 
+z-index: -1;
+}
+
+.hrhand{
+width: 0.5rem;
+height: 5rem;
+background-color:rgb(8, 8, 8);
+top: 32%;
+left: 52%;
+transform-origin: bottom center; 
+z-index: -1;
+}
+
+section span:nth-child(1)
+{
+color: rgb(75, 32, 3);
+font-size: 3rem;
+top: 1.5rem;
+right: 5rem;
+
+}
+section span:nth-child(2)
+{
+color:  rgb(75, 32, 3);
+font-size: 3rem;
+top: 30%;
+right: 2rem;
+transform: translate(50%,-50%);
+}
+section span:nth-child(3)
+{
+color:  rgb(75, 32, 3);
+font-size: 3rem;
+top: 50%;
+right: 1rem;
+transform: translate(50%,-50%);
+
+}
+section span:nth-child(4)
+{
+color:  rgb(75, 32, 3);
+font-size: 3rem;
+top: 63%;
+right: 4%;
+}
+section span:nth-child(5)
+{
+color:  rgb(75, 32, 3);
+font-size: 3rem;
+top: 80%;
+right: 19%;
+}
+section span:nth-child(6)
+{
+color:  rgb(75, 32, 3);
+font-size: 3rem;
+top: 23rem;
+left: 45%;
+transform: translate(50%,-50%);
+}
+section span:nth-child(7)
+{
+color:  rgb(75, 32, 3);
+font-size: 3rem;
+left: 24%;
+top: 90%;
+transform: translate(50%,-50%);
+}
+section span:nth-child(8)
+{
+color:  rgb(75, 32, 3);
+font-size: 3rem;
+bottom: 20%;
+left: 10%;
+
+}
+section span:nth-child(9)
+{
+color:  rgb(75, 32, 3);
+font-size: 3rem;
+top: 45%;
+left: 1%;
+
+}
+section span:nth-child(10)
+{
+color:  rgb(75, 32, 3);
+font-size: 3rem;
+top: 30%;
+left: 0rem;
+transform: translate(50%,-50%);
+}
+section span:nth-child(11)
+{
+color:  rgb(75, 32, 3);
+font-size: 3rem;
+top: 1.5rem;
+left: 5rem;
+}
+section span:nth-child(12)
+{
+color:  rgb(75, 32, 3);
+font-size: 3rem;
+bottom: 19rem;
+left: 40%;
+transform: translate(50%,-50%);
+}
+input{
+    outline: none;
+    border: 0;
+    border-bottom: 5px solid black;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 0.5rem;
+}
+#get{
+    padding: 0.5rem;
+    border-radius: 10px;
+    color: bisque;
+    background-color: black;
+    cursor: pointer;
+}
+#get:hover{
+    padding: 1rem;
+    border-radius: 10px;
+    color: bisque;
+    background-color: blue;
+    cursor: pointer;
+}
+
+
+.countrynames{
+             width: 10rem;
+             height: 5rem;
+        }
+        h1
+        {
+            font-size: 4rem;
+            color: rgb(11, 10, 10);
+        }
+
+</style>
+
+<body>
+
+    
+        <div><h1>world clock</h1></div>
+
+        <br>
+        <br>
+    
+        <div class="countrynames">
+
+            <select id="allzone">
+            </select>
+
+           </div>
+    
+
+    <article>
+        <div id="div1" style="gap: 5rem; display: flex;">
+            <input type="text" name="Enter a continent" id="con" placeholder="Enter a continent">
+            <input type="text" name="Enter a city" id="location" placeholder="Enter a city">
+             <br>
+
+            <div><button  id="get">Get Data</button></div>
+        </div>
+    <br><br>
+        <div id="div2">
+            <div id="dtime" style="color:coral ; font-family: monospace; font-weight:bolder; font-size: 2rem;"><span>DATE TIME: </span></div>
+            <br>
+            <br>
+            <div id="tzone" style="color:coral ; font-family: monospace; font-weight:bolder; font-size: 2rem;"><span>TIMEZONE: </span></div>
+        </div>
+
+
+    </article>
+
+
+    <br>
+    <br>
+    <br>
+
+          <section>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+        <span>6</span>
+        <span>7</span>
+        <span>8</span>
+        <span>9</span>
+        <span>10</span>
+        <span>11</span>
+        <span>12</span>
+
+    
+        <span class="centroid"></span>
+        <span class="sechand" id="sechand"></span>
+        <span class="minhand" id="minhand"></span>
+        <span class="hrhand" id="hrhand"></span>
+    
+    
+    </section>
+   
+
+
+</body>
+<script src="../js/worldclock.js"></script>
+
+</html>
